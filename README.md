@@ -6,11 +6,20 @@ thulac4j是[THULAC](http://thulac.thunlp.org/)的Java 8实现，相比于[THULAC
 2. 重写DAT（双数组Trie树）的构造算法，生成的DAT size减少了8%左右，从而节省了内存；
 3. 简明化分词流程，便于功能扩展。
 
-[TOC]
 
 ## 使用示例
 
-thulac4j支持两种分词模式：
+在项目中使用thulac4j，添加依赖（目前正在申请入中央maven仓库）：
+
+```xml
+<dependency>
+  <groupId>com.github.thulac4j</groupId>
+  <artifactId>thulac4j</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+支持两种分词模式：
 
 1. SegOnly模式，只分词没有词性标注；
 2. SegPos模式，分词兼有词性标注。
@@ -29,7 +38,8 @@ System.out.println(pos.segment(sentence));
 //[滔滔/a, 的/u, 流水/n, ，/w, 向着/p, 波士顿湾/ns, 无声/v, 逝去/v]
 ```
 
-SegOnly模式分词速度更快，但是准确率较SegPos模式要低（还没细致地测试）。SegPos模式具有更高的准确率，但是内存占用更多、分词速度稍慢。
+分词需要下载训练模型`seg_only.bin`与`seg_pos.bin`，可在Github下载源码或在[这里](http://pan.baidu.com/s/1dFvHN4P)下载。SegOnly分词速度更快，但是准确率较SegPos模式要低（还没细致地测试）。SegPos具有更高的准确率，但是内存占用更多、分词速度稍慢。
+
 
 此外，thulac4j还支持自定义词典：
 
